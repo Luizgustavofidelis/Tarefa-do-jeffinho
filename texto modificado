@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto mudado</title>
+<style>
+        #texto {
+            transition: all 0.5s;
+        }
+</style>
+</head>
+<body>
+
+    <h1 id="texto">nao faco nada</h1>
+    <button onclick="modificartexto()">Clique aqui!!!</button>
+
+    <script>
+        function modificartexto(){
+            const h1 = document.getElementById("texto");
+            h1.textContent = "MUDOUU!";
+            h1.style.color = "purple";
+            h1.style.fontSize = "60px";
+        }
+    </script>
+
+
+</body>
+</html>
