@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conversa de sorveto</title>
+    <script>
+        function verificarTexto() {
+            const input = document.getElementById("saborInput").value;
+            const resultado = document.getElementById("resultado");
+            
+            if (input.length > 3) {
+                if (input.toLowerCase() === "chocolate") {
+                    resultado.innerText = "Eu amo sorvete de chocolate!";
+                } else if (input.toLowerCase() === "flocos") {
+                    resultado.innerText = "Ahh, mas chocolate é o meu favorito...";
+                } else {
+                    resultado.innerText = "Ahh, eu esperava um sabor de sorvete...";
+                }
+            } else {
+                resultado.innerText = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Sabores de sorvete</h1>
+    <input type="text" id="saborInput" placeholder="fale um sabor" oninput="verificarTexto()">
+    <p id="resultado"></p>
+</body>
+</html>
