@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Nome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .aventura-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+            background-color: rgb(0, 140, 255);
+        }
+        #nomeAventura {
+            border: 1px solid black;
+            padding: 5px; 
+            min-width: 200px; 
+            text-align: left; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Gerador de Nome</h1>
+    <div class="aventura-container">
+        <button onclick="gerarNomeAventura()">Gerar Nome</button>
+        <h2 id="nomeAventura"></h2>
+    </div>
+
+    <script>
+        const titles = ["Sr.", "Mister", "Dom", "Lord", "Lady", "Capitão", "Dama"];
+        const names = ["Arthur", "Gwendolyn", "Merlin", "Lancelot", "Morgana", "Ragnar", "Éowyn"];
+        const classes = ["Mago", "Paladino", "Arqueiro", "Ladino", "Bárbaro", "Feiticeiro", "Cavaleiro"];
+        const locations = ["Valfenda", "Gondor", "Asgard", "Camelot", "Nárnia", "Babilônia", "Atlantis"];
+
+        function gerarNomeAventura() {
+            const title = titles[Math.floor(Math.random() * titles.length)];
+            const name = names[Math.floor(Math.random() * names.length)];
+            const className = classes[Math.floor(Math.random() * classes.length)];
+            const location = locations[Math.floor(Math.random() * locations.length)];
+
+            const aventura = `${title} ${name}, o ${className} de ${location}`;
+            document.getElementById("nomeAventura").innerText = aventura;
+        }
+    </script>
+
+</body>
+</html>
