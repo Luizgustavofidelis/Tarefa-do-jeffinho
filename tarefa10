@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+<h2>Formulário pra empresa dos younis</h2>
+<form id="cadastroForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" required><br>
+    <span id="nomeError" class="error"></span><br>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" required><br>
+    <span id="emailError" class="error"></span><br>
+
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" required>
+    <input type="checkbox" id="revealSenha"> Mostrar Senha<br>
+    <span id="senhaError" class="error"></span><br>
+
+    <label for="confirmarSenha">Repitir Senha:</label>
+    <input type="password" id="confirmarSenha" required><br>
+    <span id="confirmarSenhaError" class="error"></span><br>
+
+    <button type="submit">Tentar a sorte</button>
+</form>
+
+<script>
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+document.getElementById('revealSenha').addEventListener('change', function() {
+    const senhaInput = document.getElementById('senha');
+    senhaInput.type = this.checked ? 'text' : 'password';
+});
+
+document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    let isValid = true;
+
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+    const confirmarSenha = document.getElementById('confirmarSenha').value;
+
+
+    if (nome.length < 3) {
+        document.getElementById('nomeError').textContent = "O nome deve ter pelo menos 3 caracteres.";
+        isValid = false;
+    } else {
+        document.getElementById('nomeError').textContent = "";
+    }
+
+   
+    if (!emailRegex.test(email)) {
+        document.getElementById('emailError').textContent = "E-mail inválido.";
+        isValid = false;
+    } else {
+        document.getElementById('emailError').textContent = "";
+    }
+
+    
+    if (!senhaRegex.test(senha)) {
+        document.getElementById('senhaError').textContent = "A senha deve ter pelo menos 8 caracteres, uma letra maiúscula e um caractere especial.";
+        isValid = false;
+    } else {
+        document.getElementById('senhaError').textContent = "";
+    }
+
+    
+    if (senha !== confirmarSenha) {
+        document.getElementById('confirmarSenhaError').textContent = "As senhas não coincidem.";
+        isValid = false;
+    } else {
+        document.getElementById('confirmarSenhaError').textContent = "";
+    }
+
+  
+    if (isValid) {
+        alert("Cadastro realizado com sucesso!");
+        
+    }
+});
+</script>
+
+</body>
+</html>
