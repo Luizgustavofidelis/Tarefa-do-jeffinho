@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipper</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #dipper {
+            width: 150px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="dipper" src="Dipper.png" alt="Dipper Pines">
+    <div id="menssage">acarecie o dipper</div>
+
+    <script>
+        const dipper = document.getElementById('dipper');
+        const menssage = document.getElementById('menssage');
+
+        dipper.addEventListener('mouseenter', () => {
+            menssage.textContent = "Oi! Você me encontrou!";
+        });
+
+        dipper.addEventListener('mouseleave', () => {
+            menssage.textContent = "passa o mouse denovo";
+        });
+
+        dipper.addEventListener('mousemove', () => {
+            menssage.textContent = "Espernado alguma aventura";
+        });
+
+        dipper.addEventListener('click', () => {
+            menssage.textContent = "ei que isso?";
+        });
+    </script>
+
+</body>
+</html>
